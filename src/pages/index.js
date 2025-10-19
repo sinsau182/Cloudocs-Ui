@@ -1,114 +1,88 @@
-import Image from "next/image";
-import { Geist, Geist_Mono } from "next/font/google";
-
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
+import Head from "next/head";
+import { Button } from "@/components/ui/button";
+import { Shield, Zap, Lock, Cloud } from "lucide-react";
 
 export default function Home() {
   return (
-    <div
-      className={`${geistSans.className} ${geistMono.className} font-sans grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20`}
-    >
-      <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="font-mono list-inside list-decimal text-sm/6 text-center sm:text-left">
-          <li className="mb-2 tracking-[-.01em]">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] font-mono font-semibold px-1 py-0.5 rounded">
-              src/pages/index.js
-            </code>
-            .
-          </li>
-          <li className="tracking-[-.01em]">
-            Save and see your changes instantly.
-          </li>
-        </ol>
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:w-auto"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=default-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 w-full sm:w-auto md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=default-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
+    <div className="min-h-screen bg-white">
+      {/* Header */}
+      <header className="border-b border-slate-200 bg-white sticky top-0 z-40">
+        <div className="max-w-[1100px] mx-auto px-6 py-3 flex items-center justify-between">
+          <div className="flex items-center gap-3">
+            <div className="w-9 h-9 rounded-lg bg-[#EEF5FF] flex items-center justify-center">
+              <Cloud className="w-5 h-5 text-[#0B6CFF]" />
+            </div>
+            <span className="font-bold text-[#0B2340]">ClouDocs</span>
+          </div>
+          <Button className="bg-[#0B6CFF] hover:bg-[#0B6CFF]/90 text-white" size="sm">
+            Get Started
+          </Button>
         </div>
-      </main>
-      <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=default-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=default-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=default-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
+      </header>
+
+      {/* Hero Section */}
+      <section className="py-20 text-center bg-gradient-to-b from-white to-[#FBFDFF]">
+        <div className="max-w-[880px] mx-auto px-6">
+          <h1 className="text-[44px] leading-[1.1] font-extrabold text-[#0B1A2B]">
+            Your files, safely stored in the cloud
+          </h1>
+          <p className="mt-4 text-[16px] text-[#6B7280] max-w-[720px] mx-auto">
+            CloudBox keeps your files secure, accessible, and organized. Upload, share, and access
+            your content from anywhere.
+          </p>
+          <div className="mt-8 flex items-center justify-center gap-4">
+            <Button className="bg-[#0B6CFF] hover:bg-[#0B6CFF]/90 text-white" size="lg">
+              Start for Free
+            </Button>
+            <Button 
+            onClick={() => { window.location.href = '/signin'; }}
+            variant="outline" className="bg-transparent hover:bg-[#0B6CFF]/90 hover:text-white text-[#0B2340]" size="lg">
+              Sign In
+            </Button>
+          </div>
+        </div>
+      </section>
+
+      {/* Features Section */}
+      <section className="bg-[#F7FAFC] border-y border-[#EEF2F7] py-14">
+        <div className="max-w-[1100px] mx-auto px-6">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div className="text-center">
+              <div className="w-14 h-14 mx-auto rounded-lg bg-[#EEF5FF] flex items-center justify-center mb-4">
+                <Shield className="w-7 h-7 text-[#0B6CFF]" />
+              </div>
+              <h3 className="font-semibold text-[#0B2340]">Secure Storage</h3>
+              <p className="mt-2 text-sm text-[#6B7280]">
+                Your files are encrypted and protected with enterprise-grade security
+              </p>
+            </div>
+
+            <div className="text-center">
+              <div className="w-14 h-14 mx-auto rounded-lg bg-[#EEF5FF] flex items-center justify-center mb-4">
+                <Zap className="w-7 h-7 text-[#0B6CFF]" />
+              </div>
+              <h3 className="font-semibold text-[#0B2340]">Lightning Fast</h3>
+              <p className="mt-2 text-sm text-[#6B7280]">
+                Upload and access your files instantly from any device
+              </p>
+            </div>
+
+            <div className="text-center">
+              <div className="w-14 h-14 mx-auto rounded-lg bg-[#EEF5FF] flex items-center justify-center mb-4">
+                <Lock className="w-7 h-7 text-[#0B6CFF]" />
+              </div>
+              <h3 className="font-semibold text-[#0B2340]">Private & Safe</h3>
+              <p className="mt-2 text-sm text-[#6B7280]">
+                Your data is yours alone. We never access or sell your files
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Footer */}
+      <footer className="py-6 text-center text-sm text-[#6B7280]">
+        © 2025 ClouDocs. Your secure file storage solution.
       </footer>
     </div>
   );
