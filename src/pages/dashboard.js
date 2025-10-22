@@ -276,7 +276,7 @@ const Dashboard = () => {
                         <Button
                           variant="ghost"
                           size="sm"
-                          onClick={() => handleDelete(file._id)}
+                          // onClick={() => handleDelete(file._id)}
                           className="text-red-500 hover:text-red-700"
                         >
                           <Trash2 className="w-4 h-4" />
