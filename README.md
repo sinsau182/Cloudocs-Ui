@@ -31,5 +31,6 @@ API requests use NEXT_PUBLIC_API_URL (change it to your deployed backend URL).
 Edit pages in pages/ — hot reload is enabled.
 
 ☁️ Deploy
+
 Easiest way: Deploy on Vercel
 For manual deploy instructions, see the Next.js docs.
