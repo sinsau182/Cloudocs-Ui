@@ -12,6 +12,7 @@ export const register = createAsyncThunk(
         email,
         password
       });
+      sessionStorage.setItem('token', response.data.token);
       return response.data;
     } catch (error) {
       return rejectWithValue(error.response.data);
@@ -27,6 +28,7 @@ export const login = createAsyncThunk(
         email,
         password
       });
+      sessionStorage.setItem('token', response.data.token);
       return response.data;
     } catch (error) {
       return rejectWithValue(error.response.data);
